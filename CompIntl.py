@@ -9,7 +9,7 @@ from streamlit_lottie import st_lottie
 import nltk
 from nltk.corpus import stopwords
 import streamlit as st;
-
+nltk.download('stopwords')
 def perform_topic_modeling(data_path, num_topics=5, passes=5):
     def preprocess_text(texts, allowed_postags=["NOUN", "VERB", "ADJ", "ADV"], stopwords=None):
         nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
