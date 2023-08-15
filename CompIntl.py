@@ -145,7 +145,7 @@ def main():
                 for words in topics_neg_text:
                     st.write(f" {words}")
     with col2:
-        st_lottie(lottie_coding, height=300,width=400,key='coding')
+        st_lottie(lottie_coding, height=300,width=800,key='coding')
 
 main()
 
