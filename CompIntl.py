@@ -47,7 +47,7 @@ def perform_topic_modeling(data_path, num_topics=5, passes=5):
     neg_text = df_neg['reviews.text']
 
     stopwords_list=[]
-    custom_sw = ['however', 'first', 'custom', 'stopword', 'list'] 
+    custom_sw =['however', 'first', 'custom', 'stopword', 'list'] 
     stopwords_list.extend(custom_sw)
 
     lemmatized_texts_pos = preprocess_text(pos_text)
@@ -110,11 +110,6 @@ def perform_topic_modeling(data_path, num_topics=5, passes=5):
     
     return topic_pos_list, topic_neg_list
 
-
-
-# # Example usage
-# data_path = "Code/Walmart Reviews.csv"  # Update the path to your CSV file
-# perform_topic_modeling(data_path, num_topics=5, passes=5)
 def load_lottieurl(url):
     r=requests.get(url)
     if r.status_code!=200:
@@ -125,7 +120,6 @@ lottie_coding=load_lottieurl("https://lottie.host/23dbc176-5338-47c8-98f3-61a537
 
 def main():
     data_path = "Walmart Reviews.csv"  # Update the path to your CSV file
-    # Perform topic modeling
     topics_pos_text, topics_neg_text = perform_topic_modeling(data_path, num_topics=5, passes=5)
 
     # Create columns for positive and negative reviews topics
@@ -151,9 +145,7 @@ def main():
     with col2:
         st_lottie(lottie_coding, height=300, key='coding')
 
-if __name__ == "__main__":
-    main()
-
+main()
 
 
 
