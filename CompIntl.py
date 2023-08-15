@@ -7,9 +7,8 @@ from gensim.models.ldamodel import LdaModel
 import requests
 from streamlit_lottie import st_lottie
 import nltk
-from nltk.corpus import stopwords
 import streamlit as st;
-nltk.download('stopwords')
+
 def perform_topic_modeling(data_path, num_topics=5, passes=5):
     def preprocess_text(texts, allowed_postags=["NOUN", "VERB", "ADJ", "ADV"], stopwords=None):
         nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
@@ -47,8 +46,7 @@ def perform_topic_modeling(data_path, num_topics=5, passes=5):
     pos_text = df_pos['reviews.text']
     neg_text = df_neg['reviews.text']
 
-    custom_sw = ['however', 'first']  # Your list of custom stopwords
-    stopwords_list = stopwords.words("english")
+    custom_sw = ['however', 'first', 'custom', 'stopword', 'list'] 
     stopwords_list.extend(custom_sw)
 
     lemmatized_texts_pos = preprocess_text(pos_text)
