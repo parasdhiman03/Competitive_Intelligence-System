@@ -58,11 +58,13 @@ def perform_topic_modeling(data_path, num_topics=5, passes=5):
     data_clean_pos = clean_text(lemmatized_texts_pos, stopwords_list)
     data_clean_neg = clean_text(lemmatized_texts_neg, stopwords_list)
 
-    bigram = Phrases(data_clean_pos, min_count=5, threshold=10)
-    trigram = Phrases(bigram[data_clean_pos], min_count=5, threshold=10)
+    bigram_pos = Phrases(data_clean_pos, min_count=0.1, threshold=0.1)
+    trigram_pos= Phrases(bigram[data_clean_pos], min_count=0.1, threshold=0.1)
+    bigram_neg = Phrases(data_clean_pos, min_count=0.1, threshold=0.1)
+    trigram_neg= Phrases(bigram[data_clean_neg], min_count=0.1, threshold=0.1)
 
-    bow_pos = [trigram[sentence] for sentence in data_clean_pos]
-    bow_neg = [trigram[sentence] for sentence in data_clean_neg]
+    bow_pos = [trigram_pos[sentence] for sentence in data_clean_pos]
+    bow_neg = [trigram_neg[sentence] for sentence in data_clean_neg]
 
     id2word_pos = Dictionary(bow_pos)
     corpus_matrix_pos = [id2word_pos.doc2bow(sent) for sent in bow_pos]
