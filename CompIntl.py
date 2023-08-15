@@ -46,6 +46,7 @@ def perform_topic_modeling(data_path, num_topics=5, passes=5):
     pos_text = df_pos['reviews.text']
     neg_text = df_neg['reviews.text']
 
+    stopwords_list=[]
     custom_sw = ['however', 'first', 'custom', 'stopword', 'list'] 
     stopwords_list.extend(custom_sw)
 
