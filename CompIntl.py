@@ -9,6 +9,8 @@ from streamlit_lottie import st_lottie
 import nltk
 import streamlit as st;
 
+st.set_page_config(page_title="Stocks",page_icon=":tada:",layout="wide")
+
 def perform_topic_modeling(data_path, num_topics=5, passes=5):
     def preprocess_text(texts, allowed_postags=["NOUN", "VERB", "ADJ", "ADV"], stopwords=None):
         nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
