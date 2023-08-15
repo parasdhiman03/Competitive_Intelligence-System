@@ -1,2 +1,2 @@
-# Competitive_Intelligence-System
+# Competitive_Intelligence_System
 This is an advanced competitive intelligence app.
