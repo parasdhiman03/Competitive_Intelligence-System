@@ -65,8 +65,8 @@ def perform_topic_modeling(data_path, num_topics=5, passes=5):
     trigram_neg = Phrases(bigram_neg[data_clean_neg], min_count=0.1, threshold=0.1)
 
 
-    bow_pos = [trigram_pos[sentence] for sentence in data_clean_pos]
-    bow_neg = [trigram_neg[sentence] for sentence in data_clean_neg]
+    bow_pos = [bigram_pos[sentence] for sentence in data_clean_pos]
+    bow_neg = [bigram_neg[sentence] for sentence in data_clean_neg]
 
     id2word_pos = Dictionary(bow_pos)
     corpus_matrix_pos = [id2word_pos.doc2bow(sent) for sent in bow_pos]
